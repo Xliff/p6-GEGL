@@ -1,16 +1,53 @@
 use v6.c;
 
+use Method::Also;
+
 use GEGL::Raw::Types;
 use GEGL::Raw::Buffer;
 
 use GLib::Roles::Object;
+
+our subset GeglBufferAncestry is export of Mu
+  where GeglBuffer | GObject;
 
 class GEGL::Buffer {
   also does GLib::Roles::Object;
 
   has GeglBuffer $!gb;
 
-  method new (GeglRectangle() $extent, Babl() $format) {
+  submethod BUILD ( :$gegl-buffer ) {
+    self.setGeglBuffer($gegl-buffer) if $gegl-buffer;
+  }
+
+  method setGeglBuffer (GeglBufferAncestry $_) {
+    my $to-parent;
+
+    $!gb = do {
+      when GeglBuffer {
+        $to-parent = cast(GObject, $_);
+        $_;
+      }
+
+      default {
+        $to-parent = $_;
+        cast(GeglBuffer, $_);
+      }
+    }
+    self!setObject($to-parent);
+  }
+
+  method GEGL::Raw::Definitions::GeglBuffer
+    is also<GeglBuffer>
+  { $!gb }
+
+  multi method new (GeglBufferAncestry $gegl-buffer, :$ref = True) {
+    return Num unless $gegl-buffer;
+
+    my $o = self.bless( :$gegl-buffer );
+    $o.ref if $ref;
+    $o;
+  }
+  multi method new (GeglRectangle() $extent, Babl() $format) {
     my $gegl-buffer = gegl_buffer_new($extent, $format);
 
     $gegl-buffer ?? self.bless( :$gegl-buffer ) !! Nil;
@@ -19,7 +56,9 @@ class GEGL::Buffer {
   method new_for_backend (
     GeglRectangle()   $extent,
     GeglTileBackend() $backend
-  ) {
+  )
+    is also<new-for-backend>
+  {
     my $gegl-buffer = gegl_buffer_new_for_backend($extent, $backend);
 
     $gegl-buffer ?? self.bless( :$gegl-buffer ) !! Nil;
@@ -37,7 +76,7 @@ class GEGL::Buffer {
     $gegl-buffer ?? self.bless( :$gegl-buffer ) !! Nil;
   }
 
-  method add_handler (gpointer $handler) {
+  method add_handler (gpointer $handler) is also<add-handler> {
     gegl_buffer_add_handler($!gb, $handler);
   }
 
@@ -56,7 +95,9 @@ class GEGL::Buffer {
     gegl_buffer_copy($!gb, $src_rect, $rm, $dst, $dst_rect);
   }
 
-  method create_sub_buffer (GeglRectangle() $extent) {
+  method create_sub_buffer (GeglRectangle() $extent)
+    is also<create-sub-buffer>
+  {
     gegl_buffer_create_sub_buffer($!gb, $extent);
   }
 
@@ -68,11 +109,11 @@ class GEGL::Buffer {
     gegl_buffer_flush($!gb);
   }
 
-  method flush_ext (GeglRectangle() $rect) {
+  method flush_ext (GeglRectangle() $rect) is also<flush-ext> {
     gegl_buffer_flush_ext($!gb, $rect);
   }
 
-  method freeze_changed {
+  method freeze_changed is also<freeze-changed> {
     gegl_buffer_freeze_changed($!gb);
   }
 
@@ -91,25 +132,25 @@ class GEGL::Buffer {
     gegl_buffer_get($!gb, $rect, $s, $format, $dest, $r, $rm);
   }
 
-  method get_abyss {
+  method get_abyss is also<get-abyss> {
     gegl_buffer_get_abyss($!gb);
   }
 
-  method get_extent {
+  method get_extent is also<get-extent> {
     gegl_buffer_get_extent($!gb);
   }
 
-  method get_format {
+  method get_format is also<get-format> {
     gegl_buffer_get_format($!gb);
   }
 
-  method get_type {
+  method get_type is also<get-type> {
     state ($n, $t);
 
     unstable_get_type( self.^name, &gegl_buffer_get_type, $n, $t );
   }
 
-  method remove_handler (gpointer $handler) {
+  method remove_handler (gpointer $handler) is also<remove-handler> {
     gegl_buffer_remove_handler($!gb, $handler);
   }
 
@@ -138,7 +179,9 @@ class GEGL::Buffer {
     Int()               $level,
     Int()               $sampler_type,
     Int()               $repeat_mode
-  ) {
+  )
+    is also<sample-at-level>
+  {
     my gdouble         ($xx, $yy) = ($x, $y);
     my gint            $l         = $level;
     my GeglSamplerType $s         = $sampler_type;
@@ -157,7 +200,7 @@ class GEGL::Buffer {
     );
   }
 
-  method sample_cleanup {
+  method sample_cleanup is also<sample-cleanup> {
     gegl_buffer_sample_cleanup($!gb);
   }
 
@@ -177,7 +220,7 @@ class GEGL::Buffer {
     gegl_buffer_set($!gb, $rect, $m, $format, $src, $r);
   }
 
-  method set_abyss (GeglRectangle() $abyss) {
+  method set_abyss (GeglRectangle() $abyss) is also<set-abyss> {
     gegl_buffer_set_abyss($!gb, $abyss);
   }
 
@@ -185,15 +228,17 @@ class GEGL::Buffer {
     GeglRectangle() $rect,
     gpointer        $pixel,
     Babl()          $pixel_format
-  ) {
+  )
+    is also<set-color-from-pixel>
+  {
     gegl_buffer_set_color_from_pixel($!gb, $rect, $pixel, $pixel_format);
   }
 
-  method set_extent (GeglRectangle() $extent) {
+  method set_extent (GeglRectangle() $extent) is also<set-extent> {
     gegl_buffer_set_extent($!gb, $extent);
   }
 
-  method set_format (Babl() $format) {
+  method set_format (Babl() $format) is also<set-format> {
     gegl_buffer_set_format($!gb, $format);
   }
 
@@ -202,17 +247,21 @@ class GEGL::Buffer {
     GeglBuffer()    $pattern,
     Int()           $x_offset,
     Int()           $y_offset
-  ) {
+  )
+    is also<set-pattern>
+  {
     my gint ($xo, $yo) = ($x_offset, $y_offset);
 
     gegl_buffer_set_pattern($!gb, $rect, $pattern, $xo, $yo);
   }
 
-  method share_storage (GeglBuffer() $buffer2) {
+  method share_storage (GeglBuffer() $buffer2) is also<share-storage> {
     gegl_buffer_share_storage($!gb, $buffer2);
   }
 
-  method signal_connect (Str $detailed_signal, &c_handler, gpointer $data) {
+  method signal_connect (Str $detailed_signal, &c_handler, gpointer $data)
+    is also<signal-connect>
+  {
     gegl_buffer_signal_connect(
       $!gb,
       $detailed_signal,
@@ -221,23 +270,58 @@ class GEGL::Buffer {
     );
   }
 
-  method thaw_changed {
+  method thaw_changed is also<thaw-changed> {
     gegl_buffer_thaw_changed($!gb);
   }
 
 }
+
+our subset GeglSamplerAncestry is export of Mu
+  where GeglSampler | GObject;
 
 class GEGL::Sampler {
   also does GLib::Roles::Object;
 
   has GeglSampler $!gs;
 
-  method new (GeglBuffer() $buffer, Babl() $format, Int() $sampler_type) {
+  submethod BUILD ( :$gegl-buffer ) {
+    self.setGeglSampler($gegl-buffer) if $gegl-buffer;
+  }
+
+  method setGeglSampler (GeglSamplerAncestry $_) {
+    my $to-parent;
+
+    $!gs = do {
+      when GeglBuffer {
+        $to-parent = cast(GObject, $_);
+        $_;
+      }
+
+      default {
+        $to-parent = $_;
+        cast(GeglSampler, $_);
+      }
+    }
+    self!setObject($to-parent);
+  }
+
+  multi method GEGL::Raw::Definitions::GeglSampler
+    is also<GeglSampler>
+  { $!gs }
+
+  multi method new (GeglSamplerAncestry $gegl-sampler, :$ref = True) {
+    return Num unless $gegl-sampler;
+
+    my $o = self.bless( :$gegl-sampler );
+    $o.ref if $ref;
+    $o;
+  }
+  multi method new (GeglBuffer() $buffer, Babl() $format, Int() $sampler_type) {
     my GeglSamplerType $s = $sampler_type;
 
-    my $gegl-buffer-sampler = gegl_buffer_sampler_new($buffer, $format, $s);
+    my $gegl-sampler = gegl_buffer_sampler_new($buffer, $format, $s);
 
-    $gegl-buffer-sampler ?? self.bless( :$gegl-buffer-sampler ) !! Nil;
+    $gegl-sampler ?? self.bless( :$gegl-sampler ) !! Nil;
   }
 
   method new_at_level (
@@ -245,11 +329,20 @@ class GEGL::Sampler {
     Babl()       $format,
     Int()        $sampler_type,
     Int()        $level
-  ) {
+  )
+    is also<new-at-level>
+  {
     my GeglSamplerType $s = $sampler_type;
     my gint            $l = $level;
 
-    gegl_buffer_sampler_new_at_level($buffer, $format, $s, $l);
+    my $gegl-sampler = gegl_buffer_sampler_new_at_level(
+      $buffer,
+      $format,
+      $s,
+      $l
+    );
+
+    $gegl-sampler ?? self.bless( :$gegl-sampler ) !! Nil;
   }
 
   method get (
@@ -265,11 +358,11 @@ class GEGL::Sampler {
     gegl_sampler_get($!gs, $xx, $yy, $scale, $output, $repeat_mode);
   }
 
-  method get_context_rect {
+  method get_context_rect is also<get-context-rect> {
     gegl_sampler_get_context_rect($!gs);
   }
 
-  method get_fun {
+  method get_fun is also<get-fun> {
     gegl_sampler_get_fun($!gs);
   }
 
@@ -277,12 +370,10 @@ class GEGL::Sampler {
 
 class GEGL::Buffer::Linear is GEGL::Buffer {
 
-  method close (gpointer $linear) {
-    gegl_buffer_linear_close(self.GeglBuffer, $linear);
-  }
-
   method new (Babl() $format) {
-    gegl_buffer_linear_new($format);
+    my $gegl-buffer = gegl_buffer_linear_new($format);
+
+    $gegl-buffer ?? self.bless( :$gegl-buffer ) !! Nil;
   }
 
   method new_from_data (
@@ -290,11 +381,13 @@ class GEGL::Buffer::Linear is GEGL::Buffer {
     GeglRectangle() $extent,
     Int()           $rowstride,
     GDestroyNotify  $destroy_fn,
-    gpointer         $destroy_fn_data
-  ) {
+    gpointer        $destroy_fn_data
+  )
+    is also<new-from-data>
+  {
     my gint $r = $rowstride;
 
-    gegl_buffer_linear_new_from_data(
+    my $gegl-buffer = gegl_buffer_linear_new_from_data(
       self.GeglBuffer,
       $format,
       $extent,
@@ -302,10 +395,22 @@ class GEGL::Buffer::Linear is GEGL::Buffer {
       $destroy_fn,
       $destroy_fn_data
     );
+
+    $gegl-buffer ?? self.bless( :$gegl-buffer ) !! Nil;
   }
 
   method open (GeglRectangle() $extent, $rowstride is rw, Babl() $format) {
-    gegl_buffer_linear_open(self.GeglBuffer, $extent, $rowstride, $format);
+    my $gegl-buffer = gegl_buffer_linear_open(
+      $extent,
+      $rowstride,
+      $format
+    );
+
+    $gegl-buffer ?? self.bless( :$gegl-buffer ) !! Nil;
+  }
+
+  method close (gpointer $linear) {
+    gegl_buffer_linear_close(self.GeglBuffer, $linear);
   }
 
 }
