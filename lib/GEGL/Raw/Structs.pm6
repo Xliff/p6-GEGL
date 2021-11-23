@@ -421,6 +421,10 @@ class GeglTileBackend is repr<CStruct> is export {
 # 	has cl_channel_type  $!image_channel_data_type;
 # }
 
+class GeglMatrix3 is repr<CStruct> is export {
+  HAS gdouble          @coeff[9] is CArray;
+}
+
 class GeglBufferMatrix3 is repr<CStruct> is export {
   HAS gdouble          @coeff[9] is CArray;
 }
