@@ -84,7 +84,7 @@ class GEGL::Node {
   also does GLib::Roles::Object;
   also does GEGL::Roles::Signals::Generic;
 
-  has GeglNode() $!gn         is implementor;
+  has GeglNode $!gn         is implementor;
 
   submethod BUILD ( :$gegl-node ) {
     self.setGeglNode($gegl-node) if $gegl-node;
