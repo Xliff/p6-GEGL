@@ -9,16 +9,16 @@ use GLib::Roles::Signals::Generic;
 role GEGL::Roles::Signals::Node {
   also does GLib::Roles::Signals::Generic;
 
-  has %!signals-gn;
+  has %!signals-gegl;
 
-  # GeglNode, GeglRectangle, gpointer
+  # GObject, GeglRectangle, gpointer
   method connect-rectangle (
     $obj,
     $signal,
     &handler?
   ) {
     my $hid;
-    %!signals-gn{$signal} //= do {
+    %!signals-gegl{$signal} //= do {
       my \𝒮 = Supplier.new;
       $hid = g-connect-rectangle($obj, $signal,
         -> $, $r, $ud {
@@ -32,8 +32,8 @@ role GEGL::Roles::Signals::Node {
       );
       [ 𝒮.Supply, $obj, $hid ];
     };
-    %!signals-gn{$signal}[0].tap(&handler) with &handler;
-    %!signals-gn{$signal}[0];
+    %!signals-gegl{$signal}[0].tap(&handler) with &handler;
+    %!signals-gegl{$signal}[0];
   }
 
 }
@@ -42,7 +42,7 @@ role GEGL::Roles::Signals::Node {
 sub g-connect-rectangle (
   Pointer $app,
   Str $name,
-  &handler (GeglNode, GeglRectangle, Pointer),
+  &handler (GObject, GeglRectangle, Pointer),
   Pointer $data,
   uint32 $flags
 )
