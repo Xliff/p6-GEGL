@@ -256,24 +256,41 @@ unit package GEGL::Raw::Structs;
 # 	has guint          $!ui_maximum     ;
 # }
 #
-# class GeglPath is repr<CStruct> is export {
-# 	has GObject $!parent_instance;
-# }
-#
-# class GeglPathItem is repr<CStruct> is export {
-# 	has guint8         $!type ;
-# 	has GeglPathPoint $!point;
-# }
-#
-# class GeglPathList is repr<CStruct> is export {
-# 	has GeglPathList $!next;
-# 	has GeglPathItem $!d   ;
-# }
-#
-# class GeglPathPoint is repr<CStruct> is export {
-# 	has gfloat $!x;
-# 	has gfloat $!y;
-# }
+
+class GeglPath is repr<CStruct> is export {
+	has GObject $.parent_instance;
+}
+
+class GeglPathPoint is repr<CStruct> is export {
+	has gfloat $.x is rw;
+	has gfloat $.y is rw;
+}
+
+class GeglPathItem is repr<CStruct> is export {
+	has guint8         $.type     is rw;
+	HAS GeglPathPoint  @!point[4] is CArray;
+}
+
+class GeglPathList is repr<CStruct> is export {
+	has GeglPathList $!next;
+	has GeglPathItem $!d;
+
+  method next is rw {
+    Proxy.new:
+      FETCH => sub ($)                   { $!next },
+      STORE => -> $, GeglPathList() $val { self.^attributes(:local)[0]
+                                               .set_value(self, $val)    };
+  }
+
+  method d is rw {
+    Proxy.new:
+      FETCH => sub ($)                   { $!d },
+      STORE => -> $, GeglPathItem() $val { self.^attributes(:local)[1]
+                                               .set_value(self, $val)    };
+  }
+}
+
+
 #
 # class GeglProperties is repr<CStruct> is export {
 # 	has gpointer   $!user_data;
