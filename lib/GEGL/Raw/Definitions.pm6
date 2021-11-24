@@ -20,6 +20,7 @@ class GeglNode                is repr<CPointer> does GLib::Roles::Pointers is ex
 class GeglNodeOutputVisitable is repr<CPointer> does GLib::Roles::Pointers is export { }
 class GeglStats               is repr<CPointer> does GLib::Roles::Pointers is export { }
 class GeglParamSpecUri        is repr<CPointer> does GLib::Roles::Pointers is export { }
+class GeglTile                is repr<CPointer> does GLib::Roles::Pointers is export { }
 class GeglTileSourceCommand   is repr<CPointer> does GLib::Roles::Pointers is export { }
 class GeglProcessor           is repr<CPointer> does GLib::Roles::Pointers is export { }
 
@@ -28,7 +29,6 @@ class GeglSampler             is repr<CPointer> does GLib::Roles::Pointers is ex
 
 # Interface
 class GeglVisitable           is repr<CPointer> does GLib::Roles::Pointers is export { }
-
 
 constant GeglRectangle is export := GdkRectangle;
 
