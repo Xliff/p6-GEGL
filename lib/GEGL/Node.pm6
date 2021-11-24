@@ -12,7 +12,7 @@ use GLib::GList;
 use GLib::Object::ParamSpec;
 
 use GLib::Roles::Object;
-use GEGL::Roles::Signals::Node;
+use GEGL::Roles::Signals::Generic;
 
 use GLib::Value;
 
@@ -82,7 +82,7 @@ sub resolveOperationParam ($op is copy, $name, $value is copy) {
 
 class GEGL::Node {
   also does GLib::Roles::Object;
-  also does GEGL::Roles::Signals::Node;
+  also does GEGL::Roles::Signals::Generic;
 
   has GeglNode() $!gn         is implementor;
 
