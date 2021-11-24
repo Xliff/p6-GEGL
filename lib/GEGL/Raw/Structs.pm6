@@ -143,9 +143,9 @@ unit package GEGL::Raw::Structs;
 # 	has gint            $!height;
 # }
 #
-# class GeglCurve is repr<CStruct> is export {
-# 	has GObject $!parent_instance;
-# }
+class GeglCurve is repr<CStruct> is export {
+	has GObject $!parent_instance;
+}
 #
 # class GeglMetadataMap is repr<CStruct> is export {
 # 	has guint8           $!local_name;
