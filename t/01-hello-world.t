@@ -10,14 +10,13 @@ use GEGL::Node;
 
 constant FRAMES = 200;
 
+# cw: This isn't working, so its quite possible op:fractal-explorer
+#     is quietly failing as a result!
 GEGL.init( application-license => 'GPL3' );
 
-my $tv = GEGL::Color.get_type;
-my $t  = GLib::Object::Type.new($tv);
-
-say "Type name for value { $tv } is { $t.name }";
-
-my $gegl    = GEGL::Node.new;
+my $tv   = GEGL::Color.get_type;
+my $t    = GLib::Object::Type.new($tv);
+my $gegl = GEGL::Node.new;
 
 my $display = $gegl.create-child('gegl:display');
 
@@ -51,16 +50,21 @@ $text.connect-to('output', $over, 'aux');
 sub f ($s) { $s.fmt('%1.3f') };
 
 sub interpolate ($t, $min, $max) {
-  $max * $t + $min * (1 - $t)
+  $max * $t + $min * (1.0 - $t)
 }
 
-for ^FRAMES -> $t {
-  my $shiftx = $t.&interpolate(-256, -512);
-  my $shifty = $t.&interpolate(0,    -256);
-  my $zoom   = $t.&interpolate(300,   400);
+for ^FRAMES {
+  my $t = $_ * 1/FRAMES;
 
-  $fractal.set( :$shiftx, :$shifty, :$zoom );
+  $fractal.set(
+    shiftx => ( my $x = $t.&interpolate(-256, -512) ),
+    shifty => ( my $y = $t.&interpolate(0,    -256) ),
+    zoom   => ( my $z = $t.&interpolate(300,   400) )
+  );
 
-  $text.set( 'string' => "x={ $shiftx.&f } y={ $shifty.&f } z={ $zoom.&f }" );
+  $text.set(
+    'string' => "x={ $x.&f } y={ $y.&f } z={ $z.&f }"
+  );
+
   $display.process
 }
