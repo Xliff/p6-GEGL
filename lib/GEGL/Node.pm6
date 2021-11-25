@@ -20,7 +20,7 @@ our subset GeglNodeAncestry is export of Mu
   where GeglNode | GeglVisitable | GObject;
 
 sub resolveOperationParam ($op is copy, $name, $value is copy) {
-  return Nil unless $value;
+  return Nil unless $value.defined;
 
   return gv_str($value) if $name eq 'operation';
 
@@ -415,7 +415,7 @@ class GEGL::Node {
 
   proto method get_property (|)
     is also<get-property>
-  { * }
+  {*}
 
   multi method get_property (
     Str() $property_name,
@@ -447,14 +447,18 @@ class GEGL::Node {
     so gegl_node_is_graph($!gn);
   }
 
-  method link (GeglNode() $sink) {
-    gegl_node_link($!gn, $sink);
+
+  multi method link (GeglNode() $sink) {
+    GEGL::Node.link($!gn, $sink);
+  }
+  multi method link (GEGL::Node:U: GeglNode() $src, GeglNode() $snk) {
+    gegl_node_link($src, $snk);
   }
 
   method link_many ( *@sinks ) is also<link-many> {
     @sinks.unshift($!gn);
     for @sinks.rotor( 2 => -1 ) -> ($source, $sink) {
-      gegl_node_link($source, $sink)
+      GEGL::Node.link($source, $sink)
     }
   }
 
@@ -539,6 +543,7 @@ class GEGL::Node {
           die 'Must set operation to set by non-GValue!'
             unless $op;
         }
+        say "P: { $property_name }";
         my $vv = resolveOperationParam($op, $property_name, $_);
         die 'Could not resolve to a GValue'
           unless $vv ~~ (GLib::Value, GValue).any;
