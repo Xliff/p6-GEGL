@@ -4,6 +4,7 @@ use NativeCall;
 
 use GLib::Raw::Definitions;
 use GEGL::Raw::Definitions;
+use GEGL::Raw::Enums;
 
 unit package GEGL::Raw::Init;
 
@@ -49,6 +50,14 @@ sub gegl_reset_stats ()
 
 sub gegl_stats ()
   returns GeglStats
+  is native(gegl)
+  is export
+{ * }
+
+### /usr/include/gegl-0.4/gegl-cpuaccel.h
+
+sub gegl_cpu_accel_get_support
+  returns GeglCpuAccelFlags
   is native(gegl)
   is export
 { * }
