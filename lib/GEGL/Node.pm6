@@ -52,6 +52,31 @@ sub resolveOperationParam ($op is copy, $name, $value is copy) {
       $v;
     }
 
+    when Array {
+      die "Invalid Op Param specification for { $name } in operation {
+           $op }!"
+      unless .elems == 2;
+
+      my @l = $_[];
+
+      say "L: { @l.gist }";
+
+      my $v = GLib::Value.new( %strToGType{ @l[0] } );
+
+      if $value ~~ @l[1].any {
+        $v."{ @l[0] }"() = $value;
+      } else {
+        my @list = @l[1][];
+        my $last = @list.pop;
+
+        die "Value '{ $value }' for { $name } in operation {
+             $op } is invalid!\nExpecting one of: {
+             @list.join(', ') } or { $last }"
+      }
+
+      $v;
+    }
+
     when 'float' {
       gv_flt($value);
     }
