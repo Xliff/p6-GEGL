@@ -9,6 +9,8 @@ use GLib::Raw::Definitions;
 use GLib::Raw::Object;
 use GEGL::Raw::Definitions;
 
+use GLib::Roles::Pointers;
+
 unit package GEGL::Raw::Structs;
 
 # cw: Types need hand checks.
@@ -326,9 +328,11 @@ class GeglPathList is repr<CStruct> is export {
 #
 
 class GeglTileSource is repr<CStruct> is export {
-	has GObject               $!parent_instance;
-	has GeglTileSourceCommand $!command        ;
-	has gpointer              $!padding        ;
+	has GObject                $!parent_instance           ;
+	has gpointer               $!command                   ; #= &GeglTimeSourceCommand (GeglTileSource, GeglTileCommand, gint, gint, gint, gpointer)
+	HAS gpointer               @!padding          is CArray;
+
+
 }
 
 class GeglTileBackend is repr<CStruct> is export {
@@ -341,18 +345,32 @@ class GeglTileBackend is repr<CStruct> is export {
 # 	has gpointer            $!padding     ;
 # }
 #
-# class GeglTileCopyParams is repr<CStruct> is export {
-# 	has GeglBuffer $!dst_buffer;
-# 	has gint       $!dst_x     ;
-# 	has gint       $!dst_y     ;
-# 	has gint       $!dst_z     ;
-# }
-#
-# class GeglTileHandler is repr<CStruct> is export {
-# 	has GeglTileSource         $!parent_instance;
-# 	has GeglTileSource         $!source         ;
-# 	has GeglTileHandlerPrivate $!priv           ;
-# }
+class GeglTileCopyParams is repr<CStruct> is export does GLib::Roles::Pointers {
+	has GeglBuffer $!dst_buffer      ;
+	has gint       $.dst_x      is rw;
+	has gint       $.dst_y      is rw;
+	has gint       $.dst_z      is rw;
+
+	method dst_buffer is also<dst-buffer> is rw {
+		Proxy.new:
+			FETCH => -> $               { $!dst_buffer },
+			STORE => -> GeglBuffer() $b { self.^attributes[0].set_value(self, $b); }
+	}
+
+	method set (Int() $x, Int() $y, Int() $z, GeglBuffer() $b) {
+		$!dst_x         = $x;
+		$!dst_y         = $y;
+		$!dst_z         = $z;
+		self.dst_buffer = $b;
+	}
+}
+
+class GeglTileHandler is repr<CStruct> is export {
+	has GeglTileSource         $.parent_instance;
+	has GeglTileSource         $.source         ;
+	has gpointer               $!priv           ; #= GeglTileHandlerPrivate
+}
+
 #
 # class GeglTileHandlerClass is repr<CStruct> is export {
 # 	has GeglTileSourceClass $!parent_class;
