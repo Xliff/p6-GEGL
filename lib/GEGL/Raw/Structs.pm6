@@ -1,6 +1,7 @@
 use v6.c;
 
 use NativeCall;
+use Method::Also;
 
 use Cairo;
 
@@ -147,11 +148,37 @@ class GeglCurve is repr<CStruct> is export {
 	has GObject $!parent_instance;
 }
 #
-# class GeglMetadataMap is repr<CStruct> is export {
-# 	has guint8           $!local_name;
-# 	has guint8           $!name      ;
-# 	has GValueTransform $!transform ;
-# }
+class GeglMetadataMap is repr<CStruct> is export {
+	has Str       $!local_name;
+	has Str       $!name      ;
+	has gpointer  $!transform ;
+
+	method local_name is also<local-name> is rw {
+		Proxy.new:
+			FETCH => -> $           { $!local_name },
+			STORE => -> $, Str() \v { self.^attributes[0].set_value(self, v) };
+   }
+
+	 method name is rw {
+		 Proxy.new:
+ 			 FETCH => -> $           { $!name },
+ 			 STORE => -> $, Str() \v { self.^attributes[1].set_value(self, v) };
+	 }
+
+	 method transform is rw {
+		 Proxy.new:
+ 			 FETCH => -> $           { $!transform },
+ 			 STORE => -> $, Str() \v { self.^attributes[2].set_value(self, v) };
+	 }
+}
+
+class GeglMetadataIter is repr<CStruct> is export does GLib::Roles::Pointers {
+	has guint       $!stamp;
+	has gpointer    $!user_data;
+	has gpointer    $!user_data2;
+	has gpointer    $!user_data3;
+}
+
 #
 # class GeglModuleInfo is repr<CStruct> is export {
 # 	has guint32 $!abi_version;
