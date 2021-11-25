@@ -23,7 +23,12 @@ INIT {
     },
 
     fractal-explorer => {
-      shiftx => 'float'
+      shiftx     => 'double',
+      shifty     => 'double',
+      zoom       => 'double',
+      iterations => 'int64',
+      cx         => 'double',
+      cy         => 'double'
     }
   );
 
