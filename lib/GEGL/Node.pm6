@@ -25,20 +25,20 @@ sub resolveOperationParam ($op is copy, $name, $value is copy) {
   return gv_str($value) if $name eq 'operation';
 
   $op .= subst('gegl:', '');
-  say "Resoving for { $op } / { $name } -> {
-       %operations{$op}{$name} // '»NIL«' }";
+  #say "Resoving for { $op } / { $name } -> {
+  #     %operations{$op}{$name} // '»NIL«' }";
 
-  say "O: { %operations.gist } / { %operations.WHERE }";
+  #say "O: { %operations.gist } / { %operations.WHERE }";
 
   given %operations{$op}{$name} {
     when Pair {
-      say "GEGL::Node.set -- Pair using type { .value } for attribute { .key }";
+      #say "GEGL::Node.set -- Pair using type { .value } for attribute { .key }";
 
       my $pair = $_;
       my $v;
       given .key {
         when 'object' {
-          say "PV: { $pair.value }";
+          #say "PV: { $pair.value }";
           $v = GLib::Value.new( $pair.value );
         }
 
@@ -59,7 +59,7 @@ sub resolveOperationParam ($op is copy, $name, $value is copy) {
 
       my @l = $_[];
 
-      say "L: { @l.gist }";
+      #say "L: { @l.gist }";
 
       my $v = GLib::Value.new( %strToGType{ @l[0] } );
 
@@ -94,7 +94,7 @@ sub resolveOperationParam ($op is copy, $name, $value is copy) {
     }
 
     when .starts-with('int') | .starts-with('uint') {
-      say "Using '{ $_ }' for { $op }.{ $name }";
+      #say "Using '{ $_ }' for { $op }.{ $name }";
 
       $_ ?? ::("\&gv_{ $_ }")($value) !! Nil;
     }
@@ -531,16 +531,16 @@ class GEGL::Node {
     # Look for operation FIRST if it does not exist.
     unless self.get_operation {
       if %set-hash<operation>:exists {
-        say 'setting operation!';
+        #say 'setting operation!';
         self.set_property('operation', %set-hash<operation>);
         %set-hash<operation>:delete;
       }
     }
 
     my @sets = |%set-hash.pairs.map({ (.key, .value) }).flat;
-    say "S: { @sets.gist }";
+    #say "S: { @sets.gist }";
     for @sets.rotor(2) -> ($n, $v) {
-      say "N: { $n } / V: { $v }";
+      #say "N: { $n } / V: { $v }";
       self.set_property($n, $v);
     }
   }
@@ -552,7 +552,7 @@ class GEGL::Node {
   }
 
   method set_property (Str() $property_name, $value) is also<set-property> {
-    say "SetProp: { $property_name }";
+    #say "SetProp: { $property_name }";
 
     my $v = do given $value {
       when GLib::Value { .GValue }
@@ -568,7 +568,7 @@ class GEGL::Node {
           die 'Must set operation to set by non-GValue!'
             unless $op;
         }
-        say "P: { $property_name }";
+        #say "P: { $property_name }";
         my $vv = resolveOperationParam($op, $property_name, $_);
         die 'Could not resolve to a GValue'
           unless $vv ~~ (GLib::Value, GValue).any;
