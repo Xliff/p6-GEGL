@@ -155,4 +155,10 @@ class GEGL::Metadata {
     $o;
   }
 
+  method get_type {
+    state ($n, $t);
+
+    unstable_get_type( self.^name, &gegl_metadata_get_type, $n, $t );
+  }
+
 }

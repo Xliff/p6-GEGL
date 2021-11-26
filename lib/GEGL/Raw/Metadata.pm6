@@ -90,3 +90,9 @@ sub gegl_metadata_unregister_map (GeglMetadata $metadata)
   is native(gegl)
   is export
 { * }
+
+sub gegl_metadata_get_type ()
+  returns GType
+  is native(gegl)
+  is export
+{ * }
