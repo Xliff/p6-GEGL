@@ -13,6 +13,7 @@ our subset GeglMetadataStoreAncestry is export of Mu
   where GeglMetadataStore | GeglMetadata | GObject;
 
 class GEGL::Metadata::Store {
+  also does Associative;
   also does GLib::Roles::Object;
   also does GEGL::Roles::Metadata;
   also does GEGL::Roles::Signals::Metadata::Store;
@@ -55,91 +56,108 @@ class GEGL::Metadata::Store {
     $o;
   }
 
-  method artist is rw {
+  method !standard-keys {
+    state @standard-keys = self.^methods.grep( * ~~ GProperty ).map( *.name );
+    @standard-keys;
+  }
+
+  method EXISTS-KEY (\k) {
+    return True if k eq self!standard-keys.any;
+    self.has-value(k);
+  }
+
+  method AT-KEY (\k) is rw {
+    return self."{ k }"() if k eq self!standard-keys.any;
+
+    Proxy.new:
+      FETCH => -> $     { self.get_value(k).value },
+
+      STORE => -> $, \v {
+        my $val = GLib::Value.new( self.typeof-value(k) );
+        $val.value = v;
+        self.set_value(k, $val);
+      };
+  }
+
+  method artist is rw is g-property {
     Proxy.new:
       FETCH => -> $     { self.get_artist    },
       STORE => -> $, \v { self.set_artist(v) }
   }
 
-  method comment is rw {
+  method comment is rw is g-property {
     Proxy.new:
       FETCH => -> $     { self.get_comment    },
       STORE => -> $, \v { self.set_comment(v) }
   }
 
-  method copyright is rw {
+  method copyright is rw is g-property {
     Proxy.new:
       FETCH => -> $     { self.get_copyright    },
       STORE => -> $, \v { self.set_copyright(v) }
   }
 
-  method description is rw {
+  method description is rw is g-property {
     Proxy.new:
       FETCH => -> $     { self.get_description    },
       STORE => -> $, \v { self.set_description(v) }
   }
 
-  method disclaimer is rw {
+  method disclaimer is rw is g-property {
     Proxy.new:
       FETCH => -> $     { self.get_disclaimer    },
       STORE => -> $, \v { self.set_disclaimer(v) }
   }
 
-  method resolution_unit is rw is also<resolution-unit> {
+  method resolution_unit is rw is g-property is also<resolution-unit> {
     Proxy.new:
       FETCH => -> $     { self.get_resolution_unit    },
       STORE => -> $, \v { self.set_resolution_unit(v) }
   }
 
-  method resolution_x is rw is also<resolution-x> {
+  method resolution_x is rw is g-property is also<resolution-x> {
     Proxy.new:
       FETCH => -> $     { self.get_resolution_x    },
       STORE => -> $, \v { self.set_resolution_x(v) }
   }
 
-  method resolution_y is rw is also<resolution-y> {
+  method resolution_y is rw is g-property is also<resolution-y> {
     Proxy.new:
       FETCH => -> $     { self.get_resolution_y    },
       STORE => -> $, \v { self.set_resolution_y(v) }
   }
 
-  method software is rw {
+  method software is rw is g-property {
     Proxy.new:
       FETCH => -> $     { self.get_software    },
       STORE => -> $, \v { self.set_software(v) }
   }
 
-  method source is rw {
+  method source is rw is g-property {
     Proxy.new:
       FETCH => -> $     { self.get_source    },
       STORE => -> $, \v { self.set_source(v) }
   }
 
-  method string is rw {
+  method string is rw is g-property {
     Proxy.new:
       FETCH => -> $     { self.get_string    },
       STORE => -> $, \v { self.set_string(v) }
   }
 
-  method timestamp is rw {
+  method timestamp is rw is g-property {
     Proxy.new:
       FETCH => -> $     { self.get_timestamp    },
       STORE => -> $, \v { self.set_timestamp(v) }
   }
 
-  method title is rw {
+  method title is rw is g-property {
     Proxy.new:
       FETCH => -> $     { self.get_title    },
       STORE => -> $, \v { self.set_title(v) }
   }
 
-  method value is rw {
-    Proxy.new:
-      FETCH => -> $     { self.get_value    },
-      STORE => -> $, \v { self.set_value(v) }
-  }
-
-  method warning is rw {
+  method warning is rw is g-property {
     Proxy.new:
       FETCH => -> $     { self.get_warning    },
       STORE => -> $, \v { self.set_warning(v) }
