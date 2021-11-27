@@ -9,6 +9,8 @@ use GLib::Roles::Object;
 use GEGL::Roles::Metadata;
 use GEGL::Roles::Signals::Metadata::Store;
 
+use GLib::Roles;
+
 our subset GeglMetadataStoreAncestry is export of Mu
   where GeglMetadataStore | GeglMetadata | GObject;
 
