@@ -25,6 +25,7 @@ class GeglTileSourceCommand   is repr<CPointer> does GLib::Roles::Pointers is ex
 class GeglProcessor           is repr<CPointer> does GLib::Roles::Pointers is export { }
 class GeglMetadata            is repr<CPointer> does GLib::Roles::Pointers is export { }
 class GeglMetadataStore       is repr<CPointer> does GLib::Roles::Pointers is export { }
+class GeglMetadataHash        is repr<CPointer> does GLib::Roles::Pointers is export { }
 
 class GeglOperation           is repr<CPointer> does GLib::Roles::Pointers is export { }
 class GeglSampler             is repr<CPointer> does GLib::Roles::Pointers is export { }
