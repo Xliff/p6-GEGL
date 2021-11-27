@@ -10,6 +10,7 @@ use GEGL::Roles::Metadata;
 use GEGL::Roles::Signals::Metadata::Store;
 
 use GLib::Roles;
+use GLib::Value;
 
 our subset GeglMetadataStoreAncestry is export of Mu
   where GeglMetadataStore | GeglMetadata | GObject;
@@ -263,7 +264,19 @@ class GEGL::Metadata::Store {
     gegl_metadata_store_get_title($!gms);
   }
 
-  method get_value (Str() $name, GValue() $value) is also<get-value> {
+  proto method get_value (|)
+    is also<get-value>
+  { * }
+
+  multi method get_value (Str() $name, :$raw = False ) {
+    my $v-type = self.typeof_value($name);
+    die "Can't get type of '{ $name }'!" unless $v-type;
+
+    my $v = GLib::Value.new($v-type);
+    samewith($name, $v);
+    propReturnObject($v, $raw, |GLib::Value.getTypePair);
+  }
+  multi method get_value (Str() $name, GValue() $value) {
     gegl_metadata_store_get_value($!gms, $name, $value);
   }
 
