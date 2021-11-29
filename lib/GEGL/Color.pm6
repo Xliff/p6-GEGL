@@ -50,7 +50,7 @@ class GEGL::Color {
   multi method new (Str() $string) {
     my $gegl-color = gegl_color_new($string);
 
-    say "GEGL-Color: { $gegl-color // '»NIL«' }} / ({ +($gegl-color // 0) })";
+    #say "GEGL-Color: { $gegl-color // '»NIL«' }} / ({ +($gegl-color // 0) })";
 
     $gegl-color ?? self.bless( :$gegl-color ) !! Nil;
   }
