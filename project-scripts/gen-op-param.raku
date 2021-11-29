@@ -58,7 +58,7 @@ sub MAIN ($dir) {
   for find(
     :$dir,
     name => / '.c' $ /
-  ) -> $file {
+  ).sort( *.basename ) -> $file {
     #say "Processing { $file } ...";
     my (%enums, $em);
 
@@ -93,7 +93,7 @@ sub MAIN ($dir) {
     }
 
     # cw: Grab all properties BUT enums
-    my $m = $op ~~ m:g/ "property_"(\w+)<?{ .[0] ne 'enum' }>" ("(\w+)/;
+    my $m = $op ~~ m:g/ "property_"(\w+)<?{ .[0] ne 'enum' }>\s*'('(\w+)/;
     my @p;
     with $m {
       for $m[] {
