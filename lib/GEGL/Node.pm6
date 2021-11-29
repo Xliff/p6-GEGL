@@ -19,20 +19,24 @@ use GLib::Value;
 our subset GeglNodeAncestry is export of Mu
   where GeglNode | GeglVisitable | GObject;
 
-sub resolveOperationParam ($op is copy, $name, $value is copy) {
+sub resolveOperationParam ($op is copy, $name is copy, $value is copy) {
   return Nil unless $value.defined;
 
+  # Operation names listed in source use underscores, not dashes.
+  $name .= subst('-', '_');
+
+  # Operation is ALWAYS a string
   return gv_str($value) if $name eq 'operation';
 
   $op .= subst('gegl:', '');
-  #say "Resoving for { $op } / { $name } -> {
+  # say "Resoving for { $op } / { $name } -> {
   #     %operations{$op}{$name} // '»NIL«' }";
 
   #say "O: { %operations.gist } / { %operations.WHERE }";
 
   given %operations{$op}{$name} {
     when Pair {
-      #say "GEGL::Node.set -- Pair using type { .value } for attribute { .key }";
+      # say "GEGL::Node.set -- Pair using type { .value } for attribute { .key }";
 
       my $pair = $_;
       my $v;
