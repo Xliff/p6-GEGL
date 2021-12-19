@@ -1,0 +1,650 @@
+Dependency Generation
+=====================
+real 1.00
+user 1.52
+sys 0.04
+ === Cairo === (1/57)
+Stage start      :   0.000
+Stage parse      :   1.498
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GDK::Raw::Structs === (2/57)
+Stage start      :   0.000
+Stage parse      :   1.655
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GLib::GList === (3/57)
+Stage start      :   0.000
+Stage parse      :   1.763
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Object::ParamSpec === (4/57)
+Stage start      :   0.000
+Stage parse      :   1.817
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GLib::Raw::Definitions === (5/57)
+Stage start      :   0.000
+Stage parse      :   1.544
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Raw::Enums === (6/57)
+Stage start      :   0.000
+Stage parse      :   1.599
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.004
+Stage mast       :   0.006
+Stage mbc        :   0.003
+Stage moar       :   0.000
+ === GLib::Raw::Exceptions === (7/57)
+Stage start      :   0.000
+Stage parse      :   1.286
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.006
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Raw::Exports === (8/57)
+Stage start      :   0.000
+Stage parse      :   1.344
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GLib::Raw::Object === (9/57)
+Stage start      :   0.000
+Stage parse      :   1.637
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Raw::ReturnedValue === (10/57)
+Stage start      :   0.000
+Stage parse      :   1.289
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.006
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Raw::Struct_Subs === (11/57)
+Stage start      :   0.000
+Stage parse      :   1.528
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Raw::Structs === (12/57)
+Stage start      :   0.000
+Stage parse      :   1.749
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Raw::Subs === (13/57)
+Stage start      :   0.000
+Stage parse      :   1.758
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Raw::Types === (14/57)
+Stage start      :   0.000
+Stage parse      :   1.817
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.004
+Stage mast       :   0.008
+Stage mbc        :   0.003
+Stage moar       :   0.000
+ === GLib::Roles::Implementor === (15/57)
+Stage start      :   0.000
+Stage parse      :   1.323
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.006
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Roles::Object === (16/57)
+Stage start      :   0.000
+Stage parse      :   1.546
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.004
+Stage mbc        :   0.000
+Stage moar       :   0.000
+ === GLib::Roles::Pointers === (17/57)
+Stage start      :   0.000
+Stage parse      :   1.568
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Roles::Signals::Generic === (18/57)
+Stage start      :   0.000
+Stage parse      :   1.823
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Roles::StaticClass === (19/57)
+Stage start      :   0.000
+Stage parse      :   1.766
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Roles::TypedBuffer === (20/57)
+Stage start      :   0.000
+Stage parse      :   1.752
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GLib::Value === (21/57)
+Stage start      :   0.000
+Stage parse      :   1.791
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === Method::Also === (22/57)
+Stage start      :   0.000
+Stage parse      :   1.303
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.006
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === NativeCall === (23/57)
+Stage start      :   0.000
+Stage parse      :   1.499
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GEGL::Raw::Definitions === (24/57)
+Stage start      :   0.000
+Stage parse      :   1.650
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GEGL::Raw::Enums === (25/57)
+Stage start      :   0.000
+Stage parse      :   1.554
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GEGL::Raw::Color === (26/57)
+Stage start      :   0.000
+Stage parse      :   1.915
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GEGL::Raw::Init === (27/57)
+Stage start      :   0.000
+Stage parse      :   1.649
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.009
+Stage moar       :   0.000
+ === GEGL::Raw::Metadata::Store === (28/57)
+Stage start      :   0.000
+Stage parse      :   1.976
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.002
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GEGL::Raw::Node === (29/57)
+Stage start      :   0.000
+Stage parse      :   1.973
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GEGL::Raw::Rectangle === (30/57)
+Stage start      :   0.000
+Stage parse      :   1.682
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.009
+Stage moar       :   0.000
+ === GEGL::Raw::Structs === (31/57)
+Stage start      :   0.000
+Stage parse      :   1.775
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GEGL::Raw::Tile === (32/57)
+Stage start      :   0.000
+Stage parse      :   1.672
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GEGL::Raw::Tile::Handler === (33/57)
+Stage start      :   0.000
+Stage parse      :   1.789
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GEGL::Raw::Exports === (34/57)
+Stage start      :   0.000
+Stage parse      :   1.266
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.002
+Stage mast       :   0.006
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GEGL::Raw::Types === (35/57)
+Stage start      :   0.000
+Stage parse      :   2.036
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.004
+Stage mast       :   0.004
+Stage mbc        :   0.004
+Stage moar       :   0.000
+ === GEGL::Rectangle === (36/57)
+Stage start      :   0.000
+Stage parse      :   2.086
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GEGL::Roles::Signals::Generic === (37/57)
+Stage start      :   0.000
+Stage parse      :   2.076
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GEGL::Roles::Signals::Metadata::Store === (38/57)
+Stage start      :   0.000
+Stage parse      :   2.087
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GEGL::Tile === (39/57)
+Stage start      :   0.000
+Stage parse      :   2.062
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GEGL::Tile::Source === (40/57)
+Stage start      :   0.000
+
+    precomp lib/GEGL/Tile/Source.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.597
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.019
+    Stage mast       :   0.056
+    Stage mbc        :   0.006
+R: GLib::Roles::Object
+Stage parse      :   5.105
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GEGL === (41/57)
+Stage start      :   0.000
+Stage parse      :   2.140
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GEGL::Color === (42/57)
+Stage start      :   0.000
+
+    precomp lib/GEGL/Color.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.444
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.022
+    Stage mast       :   0.032
+    Stage mbc        :   0.017
+R: GLib::Roles::Object
+Stage parse      :   4.902
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.002
+Stage mbc        :   0.003
+Stage moar       :   0.000
+ === GEGL::Raw::Buffer === (43/57)
+Stage start      :   0.000
+Stage parse      :   1.825
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GEGL::Raw::Curve === (44/57)
+Stage start      :   0.000
+Stage parse      :   1.957
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GEGL::Raw::Matrix === (45/57)
+Stage start      :   0.000
+Stage parse      :   1.805
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GEGL::Raw::Metadata === (46/57)
+Stage start      :   0.000
+Stage parse      :   2.023
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.002
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GEGL::Raw::Path === (47/57)
+Stage start      :   0.000
+Stage parse      :   1.976
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+ === GEGL::Roles::Metadata === (48/57)
+Stage start      :   0.000
+
+    precomp lib/GEGL/Roles/Metadata.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.576
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.019
+    Stage mast       :   0.040
+    Stage mbc        :   0.006
+Stage parse      :   5.116
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.003
+Stage moar       :   0.000
+ === GEGL::Tile::Handler === (49/57)
+Stage start      :   0.000
+
+    precomp lib/GEGL/Tile/Handler.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.598
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.027
+    Stage mast       :   0.035
+    Stage mbc        :   0.005
+Stage parse      :   5.147
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GEGL::Buffer === (50/57)
+Stage start      :   0.000
+
+    precomp lib/GEGL/Buffer.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.601
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.044
+    Stage mast       :   0.098
+    Stage mbc        :   0.006
+R: GLib::Roles::Object
+Stage parse      :   5.142
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GEGL::Curve === (51/57)
+Stage start      :   0.000
+
+    precomp lib/GEGL/Curve.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.578
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.037
+    Stage mast       :   0.061
+    Stage mbc        :   0.005
+R: GLib::Roles::Object
+Stage parse      :   5.101
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.002
+Stage moar       :   0.000
+R: GLib::Roles::Implementor
+ === GEGL::Matrix === (52/57)
+Stage start      :   0.000
+Stage parse      :   2.081
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.002
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GEGL::Metadata::Store === (53/57)
+Stage start      :   0.000
+
+    precomp lib/GEGL/Metadata/Store.pm6
+    Stage start      :   0.000
+    [31m===[0mSORRY![31m===[0m Error while compiling /home/cbwood/Projects/p6-GEGL/lib/GEGL/Metadata/Store.pm6 (GEGL::Metadata::Store)
+    Undeclared name:
+        GProperty used at line 62
+    
+[31m===[0mSORRY![31m===[0m Error while compiling -e
+Stage start      :   0.000
+[31m===[0mSORRY![31m===[0m Error while compiling /home/cbwood/Projects/p6-GEGL/lib/GEGL/Metadata/Store.pm6 (GEGL::Metadata::Store)
+Undeclared name:
+    GProperty used at line 62
+
+
+at -e:1
+ === GEGL::Path === (54/57)
+Stage start      :   0.000
+
+    precomp lib/GEGL/Path.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.964
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.044
+    Stage mast       :   0.071
+    Stage mbc        :   0.007
+R: GLib::Roles::Object
+Stage parse      :   5.582
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.003
+Stage moar       :   0.000
+R: GEGL::Roles::Signals::Generic
+ === GEGL::Raw::OperationParams === (55/57)
+Stage start      :   0.000
+
+    precomp lib/GEGL/Raw/OperationParams.pm6
+    Stage start      :   0.000
+    Stage parse      :   2.867
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.129
+    Stage mast       :   0.156
+    Stage mbc        :   0.005
+Stage parse      :   5.695
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.002
+Stage moar       :   0.000
+ === GEGL::Metadata::Hash === (56/57)
+Stage start      :   0.000
+
+    precomp lib/GEGL/Metadata/Hash.pm6
+    Stage start      :   0.000
+    
+        precomp lib/GEGL/Metadata/Store.pm6
+        Stage start      :   0.000
+        [31m===[0mSORRY![31m===[0m Error while compiling /home/cbwood/Projects/p6-GEGL/lib/GEGL/Metadata/Store.pm6 (GEGL::Metadata::Store)
+        Undeclared name:
+            GProperty used at line 62
+        
+    [31m===[0mSORRY![31m===[0m Error while compiling /home/cbwood/Projects/p6-GEGL/lib/GEGL/Metadata/Hash.pm6 (GEGL::Metadata::Hash)
+    Stage start      :   0.000
+    [31m===[0mSORRY![31m===[0m Error while compiling /home/cbwood/Projects/p6-GEGL/lib/GEGL/Metadata/Store.pm6 (GEGL::Metadata::Store)
+    Undeclared name:
+        GProperty used at line 62
+    
+    
+    at /home/cbwood/Projects/p6-GEGL/lib/GEGL/Metadata/Hash.pm6 (GEGL::Metadata::Hash):7
+[31m===[0mSORRY![31m===[0m Error while compiling -e
+Stage start      :   0.000
+
+    precomp lib/GEGL/Metadata/Store.pm6
+    Stage start      :   0.000
+    [31m===[0mSORRY![31m===[0m Error while compiling /home/cbwood/Projects/p6-GEGL/lib/GEGL/Metadata/Store.pm6 (GEGL::Metadata::Store)
+    Undeclared name:
+        GProperty used at line 62
+    
+[31m===[0mSORRY![31m===[0m Error while compiling /home/cbwood/Projects/p6-GEGL/lib/GEGL/Metadata/Hash.pm6 (GEGL::Metadata::Hash)
+Stage start      :   0.000
+[31m===[0mSORRY![31m===[0m Error while compiling /home/cbwood/Projects/p6-GEGL/lib/GEGL/Metadata/Store.pm6 (GEGL::Metadata::Store)
+Undeclared name:
+    GProperty used at line 62
+
+
+at /home/cbwood/Projects/p6-GEGL/lib/GEGL/Metadata/Hash.pm6 (GEGL::Metadata::Hash):7
+
+at -e:1
+ === GEGL::Node === (57/57)
+Stage start      :   0.000
+
+    precomp lib/GEGL/Node.pm6
+    Stage start      :   0.000
+    Stage parse      :   3.145
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.059
+    Stage mast       :   0.126
+    Stage mbc        :   0.071
+R: GLib::Roles::Object
+Stage parse      :   6.009
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.003
+Stage moar       :   0.000
+R: GEGL::Roles::Signals::Generic
+
+real 152.18
+user 186.72
+sys 12.23
