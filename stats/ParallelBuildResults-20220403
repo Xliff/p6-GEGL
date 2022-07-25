@@ -1,0 +1,793 @@
+
+Parallel build started for Raku 2022.03.125.g.94.f.2.ba.5.d.4 on MoarVM 2022.03.8.g.35453.e.9.e.1
+ === GEGL::Raw::Exports (1/34) === 
+
+Stage start      :   0.000
+Stage parse      :   2.702
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.004
+Stage mast       :   0.015
+Stage mbc        :   0.004
+Stage moar       :   0.000
+
+GEGL::Raw::Exports compile time: 4.66149402
+ === GEGL::Raw::Definitions (2/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Raw/Definitions.pm6
+    Stage start      :   0.000
+    Stage parse      :   5.511
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.010
+    Stage mast       :   0.026
+    Stage mbc        :   0.003
+Stage parse      :   9.864
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Raw::Definitions compile time: 11.6775401
+ === GEGL::Raw::Enums (3/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Raw/Enums.pm6
+    Stage start      :   0.001
+    Stage parse      :   6.086
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.022
+    Stage mast       :   0.044
+    Stage mbc        :   0.025
+Stage parse      :  10.242
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.007
+Stage mast       :   0.003
+Stage mbc        :   0.003
+Stage moar       :   0.000
+
+GEGL::Raw::Enums compile time: 12.05281382
+ === GEGL::Raw::Tile (4/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Raw/Tile.pm6
+    Stage start      :   0.001
+    
+        load    lib/GEGL/Raw/Definitions.pm6
+    Stage parse      :   6.125
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.012
+    Stage mast       :   0.032
+    Stage mbc        :   0.010
+Stage parse      :  10.456
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Raw::Tile compile time: 12.40179994
+ === GEGL::Raw::Structs (5/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Raw/Structs.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Definitions.pm6
+    Stage parse      :   6.409
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.023
+    Stage mast       :   0.035
+    Stage mbc        :   0.005
+Stage parse      :  10.672
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.002
+Stage moar       :   0.000
+
+GEGL::Raw::Structs compile time: 12.43855334
+ === GEGL::Raw::Init (6/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Raw/Init.pm6
+    Stage start      :   0.001
+    
+        load    lib/GEGL/Raw/Definitions.pm6
+    
+        load    lib/GEGL/Raw/Enums.pm6
+    Stage parse      :   6.248
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.006
+    Stage mast       :   0.019
+    Stage mbc        :   0.007
+Stage parse      :  10.551
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.002
+Stage moar       :   0.000
+
+GEGL::Raw::Init compile time: 12.50680883
+ === GEGL::Raw::Color (7/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Raw/Color.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Definitions.pm6
+    Stage parse      :   6.286
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.012
+    Stage mast       :   0.025
+    Stage mbc        :   0.015
+Stage parse      :  10.868
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Raw::Color compile time: 12.84988262
+ === GEGL::Raw::Tile::Handler (8/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Raw/Tile/Handler.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Definitions.pm6
+    
+        load    lib/GEGL/Raw/Structs.pm6
+    Stage parse      :   6.320
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.011
+    Stage mast       :   0.020
+    Stage mbc        :   0.006
+Stage parse      :  10.850
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Raw::Tile::Handler compile time: 12.8107891
+ === GEGL::Raw::Rectangle (9/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Raw/Rectangle.pm6
+    Stage start      :   0.002
+    
+        load    lib/GEGL/Raw/Definitions.pm6
+    Stage parse      :   5.850
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.019
+    Stage mast       :   0.032
+    Stage mbc        :   0.015
+Stage parse      :  10.726
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.002
+Stage moar       :   0.000
+
+GEGL::Raw::Rectangle compile time: 12.87375437
+ === GEGL::Raw::Curve (10/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Raw/Curve.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Structs.pm6
+    Stage parse      :   5.195
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.012
+    Stage mast       :   0.037
+    Stage mbc        :   0.013
+Stage parse      :  10.296
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Raw::Curve compile time: 12.96798131
+ === GEGL::Raw::Matrix (11/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Raw/Matrix.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Definitions.pm6
+    
+        load    lib/GEGL/Raw/Structs.pm6
+    Stage parse      :   5.684
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.010
+    Stage mast       :   0.020
+    Stage mbc        :   0.010
+Stage parse      :  10.234
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Raw::Matrix compile time: 13.0146099
+ === GEGL::Raw::Metadata (12/34) === 
+
+Stage start      :   0.001
+
+    precomp lib/GEGL/Raw/Metadata.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Enums.pm6
+    
+        load    lib/GEGL/Raw/Structs.pm6
+    Stage parse      :   6.067
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.010
+    Stage mast       :   0.038
+    Stage mbc        :   0.009
+Stage parse      :  10.466
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Raw::Metadata compile time: 12.98307917
+ === GEGL::Raw::Types (13/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Raw/Types.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Definitions.pm6
+    
+        load    lib/GEGL/Raw/Enums.pm6
+    
+        load    lib/GEGL/Raw/Structs.pm6
+    Stage parse      :   8.360
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.003
+    Stage mast       :   0.015
+    Stage mbc        :   0.003
+Stage parse      :  11.142
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.012
+Stage mast       :   0.010
+Stage mbc        :   0.005
+Stage moar       :   0.000
+
+GEGL::Raw::Types compile time: 13.31337651
+ === GEGL::Raw::Node (14/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Raw/Node.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Enums.pm6
+    Stage parse      :   5.777
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.023
+    Stage mast       :   0.063
+    Stage mbc        :   0.029
+Stage parse      :  10.956
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Raw::Node compile time: 13.46193075
+ === GEGL::Raw::Metadata::Store (15/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Raw/Metadata/Store.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Enums.pm6
+    Stage parse      :   7.209
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.031
+    Stage mast       :   0.036
+    Stage mbc        :   0.033
+Stage parse      :  11.509
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Raw::Metadata::Store compile time: 13.58046157
+ === GEGL::Raw::Buffer (16/34) === 
+
+Stage start      :   0.001
+
+    precomp lib/GEGL/Raw/Buffer.pm6
+    Stage start      :   0.001
+    
+        load    lib/GEGL/Raw/Definitions.pm6
+    
+        load    lib/GEGL/Raw/Enums.pm6
+    
+        load    lib/GEGL/Raw/Structs.pm6
+    Stage parse      :   6.563
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.020
+    Stage mast       :   0.036
+    Stage mbc        :   0.021
+Stage parse      :  11.189
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Raw::Buffer compile time: 13.53193267
+ === GEGL::Raw::Path (17/34) === 
+
+Stage start      :   0.001
+
+    precomp lib/GEGL/Raw/Path.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Structs.pm6
+    Stage parse      :   6.062
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.030
+    Stage mast       :   0.046
+    Stage mbc        :   0.028
+Stage parse      :  10.871
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Raw::Path compile time: 13.55829811
+ === GEGL::Rectangle (18/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Rectangle.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Types.pm6
+    Stage parse      :   6.150
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.040
+    Stage mast       :   0.065
+    Stage mbc        :   0.005
+Stage parse      :  11.304
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Rectangle compile time: 13.99136998
+ === GEGL::Tile (19/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Tile.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Types.pm6
+    Stage parse      :   6.682
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.024
+    Stage mast       :   0.053
+    Stage mbc        :   0.004
+Stage parse      :  11.718
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Tile compile time: 14.20247245
+ === GEGL::Roles::Signals::Generic (20/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Roles/Signals/Generic.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Types.pm6
+    Stage parse      :   8.799
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.011
+    Stage mast       :   0.019
+    Stage mbc        :   0.035
+Stage parse      :  13.300
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Roles::Signals::Generic compile time: 15.20419379
+ === GEGL::Matrix (21/34) === 
+
+Stage start      :   0.001
+
+    precomp lib/GEGL/Matrix.pm6
+    Stage start      :   0.006
+    
+        load    lib/GEGL/Raw/Types.pm6
+    Stage parse      :   7.377
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.028
+    Stage mast       :   0.038
+    Stage mbc        :   0.004
+Stage parse      :  12.212
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.003
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Matrix compile time: 15.04477414
+ === GEGL::Roles::Metadata (22/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Roles/Metadata.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Types.pm6
+    Stage parse      :   7.113
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.027
+    Stage mast       :   0.035
+    Stage mbc        :   0.007
+Stage parse      :  12.403
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Roles::Metadata compile time: 15.41079629
+ === GEGL::Roles::Signals::Metadata::Store (23/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Roles/Signals/Metadata/Store.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Types.pm6
+    Stage parse      :   8.870
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.013
+    Stage mast       :   0.036
+    Stage mbc        :   0.006
+Stage parse      :  13.933
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Roles::Signals::Metadata::Store compile time: 16.37717965
+ === GEGL::Buffer (24/34) === 
+
+Stage start      :   0.001
+
+    precomp lib/GEGL/Buffer.pm6
+    Stage start      :   0.001
+    
+        load    lib/GEGL/Raw/Types.pm6
+    Stage parse      :   8.260
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.057
+    Stage mast       :   0.234
+    Stage mbc        :   0.011
+Stage parse      :  13.512
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Buffer compile time: 16.31348557
+ === GEGL (25/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Types.pm6
+    Stage parse      :   9.335
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.022
+    Stage mast       :   0.029
+    Stage mbc        :   0.008
+Stage parse      :  14.544
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL compile time: 16.55504973
+ === GEGL::Color (26/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Color.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Types.pm6
+    Stage parse      :   8.712
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.024
+    Stage mast       :   0.039
+    Stage mbc        :   0.009
+Stage parse      :  13.868
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Color compile time: 16.58960026
+ === GEGL::Tile::Source (27/34) === 
+
+Stage start      :   0.001
+
+    precomp lib/GEGL/Tile/Source.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Types.pm6
+    Stage parse      :   9.014
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.030
+    Stage mast       :   0.163
+    Stage mbc        :   0.007
+Stage parse      :  14.293
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Tile::Source compile time: 16.74303258
+ === GEGL::Metadata::Store (28/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Metadata/Store.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Types.pm6
+    
+        load    lib/GEGL/Roles/Signals/Metadata/Store.pm6
+    Stage parse      :   9.359
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.055
+    Stage mast       :   0.114
+    Stage mbc        :   0.007
+Stage parse      :  14.199
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Metadata::Store compile time: 16.78086477
+ === GEGL::Tile::Handler (29/34) === 
+
+Stage start      :   0.003
+
+    precomp lib/GEGL/Tile/Handler.pm6
+    Stage start      :   0.001
+    
+        load    lib/GEGL/Raw/Types.pm6
+    
+        load    lib/GEGL/Tile/Source.pm6
+    Stage parse      :   9.260
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.026
+    Stage mast       :   0.053
+    Stage mbc        :   0.003
+Stage parse      :  14.251
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Tile::Handler compile time: 16.9648233
+ === GEGL::Curve (30/34) === 
+
+Stage start      :   0.009
+
+    precomp lib/GEGL/Curve.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Types.pm6
+    Stage parse      :   8.699
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.034
+    Stage mast       :   0.037
+    Stage mbc        :   0.011
+Stage parse      :  14.107
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Curve compile time: 16.99980365
+ === GEGL::Metadata::Hash (31/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Metadata/Hash.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Types.pm6
+    
+        load    lib/GEGL/Metadata/Store.pm6
+    Stage parse      :   5.881
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.015
+    Stage mast       :   0.020
+    Stage mbc        :   0.004
+Stage parse      :  10.148
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.001
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Metadata::Hash compile time: 12.7733929
+ === GEGL::Path (32/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Path.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/Types.pm6
+    Stage parse      :   8.982
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.057
+    Stage mast       :   0.066
+    Stage mbc        :   0.006
+Stage parse      :  14.338
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.002
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Path compile time: 17.1010775
+ === GEGL::Raw::OperationParams (33/34) === 
+
+Stage start      :   0.001
+
+    precomp lib/GEGL/Raw/OperationParams.pm6
+    Stage start      :   0.001
+    
+        load    lib/GEGL/Buffer.pm6
+    Stage parse      :   9.541
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.111
+    Stage mast       :   0.086
+    Stage mbc        :   0.004
+Stage parse      :  14.606
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Raw::OperationParams compile time: 17.45746739
+ === GEGL::Node (34/34) === 
+
+Stage start      :   0.000
+
+    precomp lib/GEGL/Node.pm6
+    Stage start      :   0.000
+    
+        load    lib/GEGL/Raw/OperationParams.pm6
+    Stage parse      :   4.750
+    Stage syntaxcheck:   0.000
+    Stage ast        :   0.000
+    Stage optimize   :   0.056
+    Stage mast       :   0.081
+    Stage mbc        :   0.051
+Stage parse      :   6.603
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.000
+Stage mast       :   0.001
+Stage mbc        :   0.001
+Stage moar       :   0.000
+
+GEGL::Node compile time: 7.33341542
+
+Total compile time: 19.02435789s
