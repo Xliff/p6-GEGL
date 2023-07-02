@@ -3,6 +3,7 @@ use v6.c;
 use NativeCall;
 
 use GLib::Raw::Definitions;
+use BABL;
 use GEGL::Raw::Definitions;
 use GEGL::Raw::Enums;
 use GEGL::Raw::Structs;
