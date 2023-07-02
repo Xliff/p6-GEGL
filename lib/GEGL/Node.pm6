@@ -582,7 +582,7 @@ class GEGL::Node {
     gegl_node_set_property($!gn, $property_name, $v);
   }
 
-  method to_xml (Str() $path_root) is also<to-xml> {
+  method to_xml (Str() $path_root = 'node') is also<to-xml> {
     gegl_node_to_xml($!gn, $path_root);
   }
 
