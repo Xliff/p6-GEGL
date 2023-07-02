@@ -6,6 +6,7 @@ use GLib::Raw::Definitions;
 use GLib::Raw::Structs;
 use GEGL::Raw::Definitions;
 use GEGL::Raw::Enums;
+use BABL;
 
 unit package GEGL::Raw::Node;
 
