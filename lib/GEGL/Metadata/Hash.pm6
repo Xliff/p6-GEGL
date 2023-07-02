@@ -2,11 +2,10 @@ use v6.c;
 
 use Method::Also;
 
+use GLib::Raw::Traits;
 use GEGL::Raw::Types;
 
 use GEGL::Metadata::Store;
-
-use GLib::Roles;
 
 our subset GeglMetadataHashAncestry is export of Mu
   where GeglMetadataHash | GeglMetadataStoreAncestry;
