@@ -5,6 +5,7 @@ use NativeCall;
 use GLib::Raw::Definitions;
 use GLib::Raw::Enums;
 use GLib::Raw::Structs;
+use BABL;
 use GEGL::Raw::Definitions;
 
 unit package GEGL::Raw::Coplor;
