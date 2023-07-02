@@ -2,6 +2,7 @@ use v6.c;
 
 use Method::Also;
 
+use GLib::Raw::Traits;
 use GEGL::Raw::Types;
 use GEGL::Raw::Metadata::Store;
 
@@ -9,7 +10,6 @@ use GLib::Roles::Object;
 use GEGL::Roles::Metadata;
 use GEGL::Roles::Signals::Metadata::Store;
 
-use GLib::Roles;
 use GLib::Value;
 
 our subset GeglMetadataStoreAncestry is export of Mu
@@ -60,7 +60,9 @@ class GEGL::Metadata::Store {
   }
 
   method !standard-keys {
-    state @standard-keys = self.^methods.grep( * ~~ GProperty ).map( *.name );
+    state @standard-keys = self.^methods
+                               .grep( * ~~ PropertyMethod )
+                               .map( *.name );
     @standard-keys;
   }
 
