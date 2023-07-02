@@ -8,6 +8,8 @@ use GLib::Roles::Implementor;
 # BOXED
 
 class GEGL::Rectangle {
+  also does GLib::Roles::Implementor;
+
   has GeglRectangle $!gr is implementor;
 
   submethod BUILD ( :$gegl-rectangle ) {
@@ -255,8 +257,8 @@ class GEGL::Rectangle {
   }
 
   method subtract_bounding_box (
-    GeglRectangle $minuend,
-    GeglRectangle $subtrahend
+    GeglRectangle() $minuend,
+    GeglRectangle() $subtrahend
   ) {
     gegl_rectangle_subtract_bounding_box($!gr, $minuend, $subtrahend);
   }
