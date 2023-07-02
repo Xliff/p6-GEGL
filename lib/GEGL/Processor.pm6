@@ -2,9 +2,10 @@ use v6.c;
 
 use Method::Also;
 
-use GLib::Raw::Types;
+use GEGL::Raw::Types;
 
 use GLib::Roles::Object;
+
 
 our subset GeglProcessorAncestry is export of Mu
   where GeglProcessor | GObject;
@@ -15,34 +16,39 @@ class GEGL::Processor {
   has GeglProcessor $!gp is implementor;
 
   submethod BUILD ( :$gegl-processor ) {
-    self.setGeglProcesor($gegl-processor) if $gegl-processor;
+    self.setGeglProcessor($gegl-processor)
+      if $gegl-processor
   }
 
-  method setGeglProcesor (GeglProcesorAncestry $_) {
+  method setGeglProcessor (GeglProcessorAncestry $_) {
     my $to-parent;
 
     $!gp = do {
-      when GeglProcesor {
+      when GeglProcessor {
         $to-parent = cast(GObject, $_);
         $_;
       }
 
       default {
         $to-parent = $_;
-        cast(GeglProcesor, $_);
+        cast(GeglProcessor, $_);
       }
     }
     self!setObject($to-parent);
   }
 
-  method GEGL::Raw::Definitions::GeglProcesor
+  method GEGL::Raw::Definitions::GeglProcessor
     is also<GeglProcessor>
   { $!gp }
 
-  multi method new (GeglProcesorAncestry $gegl-processor, :$ref = True) {
-    return Nil unless $gegl-processor;
+  multi method new (
+    $gegl-processor where * ~~ GeglProcessorAncestry,
 
-    my $o = self.bless(:$gegl-processor);
+    :$ref = True
+  ) {
+    return unless $gegl-processor;
+
+    my $o = self.bless( :$gegl-processor );
     $o.ref if $ref;
     $o;
   }
@@ -66,7 +72,7 @@ class GEGL::Processor {
   }
 
   method set_scale (Num() $scale) is also<set-scale> {
-    my double $s = $scale;
+    my gdouble $s = $scale;
 
     gegl_processor_set_scale($!gp, $s);
   }
@@ -75,7 +81,7 @@ class GEGL::Processor {
     samewith($);
   }
   multi method work ($progress is rw) {
-    my gdouble $p = 0;
+    my gdouble $p = 0e0;
 
     my $r = so gegl_processor_work($!gp, $p);
     $progress = $p;
