@@ -47,12 +47,17 @@ class GEGL::Color {
     $o.ref if $ref;
     $o;
   }
-  multi method new (Str() $string) {
+  multi method new ( Str() $string = 'rgb(0,0,0)' ) {
     my $gegl-color = gegl_color_new($string);
 
     #say "GEGL-Color: { $gegl-color // '»NIL«' }} / ({ +($gegl-color // 0) })";
 
     $gegl-color ?? self.bless( :$gegl-color ) !! Nil;
+  }
+  multi method new (Num() $red, Num() $green, Num() $blue, Num() $alpha?) {
+    my $c = self.new;
+    $c.set_rgba($red, $green, $blue, $alpha // 1);
+    $c;
   }
 
   method duplicate {
