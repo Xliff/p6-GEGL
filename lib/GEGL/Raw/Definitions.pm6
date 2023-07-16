@@ -4,14 +4,12 @@ use NativeCall;
 
 use GLib::Raw::Definitions;
 use GDK::Raw::Structs;
+
 use GLib::Roles::Pointers;
 
 unit package GEGL::Raw::Definitions;
 
 constant gegl is export = 'gegl-0.4',v0;
-
-# Compat
-class Babl                    is repr<CPointer> does GLib::Roles::Pointers is export { }
 
 class GeglBuffer              is repr<CPointer> does GLib::Roles::Pointers is export { }
 class GeglColor               is repr<CPointer> does GLib::Roles::Pointers is export { }
