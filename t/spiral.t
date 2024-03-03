@@ -58,6 +58,8 @@ sub interpolate ($t, $min, $max, $modulus = $max) {
   $v;
 }
 
+$spiral.to-xml.say;
+
 for ^FRAMES {
   my $t = $_ * 1/FRAMES;
 

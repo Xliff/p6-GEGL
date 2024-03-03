@@ -5,10 +5,11 @@ use NativeCall;
 use GLib::Raw::Exports;
 use GEGL::Raw::Exports;
 
-my constant forced = 130;
+my constant forced = 188;
 
 unit package GEGL::Raw::Types;
 
+need GLib::Raw::Debug;
 need GLib::Raw::Definitions;
 need GLib::Raw::Enums;
 need GLib::Raw::Exceptions;

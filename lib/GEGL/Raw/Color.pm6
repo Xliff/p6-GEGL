@@ -8,7 +8,7 @@ use GLib::Raw::Structs;
 use BABL;
 use GEGL::Raw::Definitions;
 
-unit package GEGL::Raw::Coplor;
+unit package GEGL::Raw::Color;
 
 ### /usr/include/gegl/gegl-color.h
 

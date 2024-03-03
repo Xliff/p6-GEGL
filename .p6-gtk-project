@@ -6,3 +6,4 @@ include-directory=/usr/include/gegl-0.4
 backups=backup,bitbucket,google-backup,azure-backup,hut
 build_exclude=
 hfile-suffix=_TERMINATED
+exec=geglexec
